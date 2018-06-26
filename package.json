@@ -6,5 +6,10 @@
   "repository": "https://github.com/prakashversion1/contacto.git",
   "author": "Prakash Joshi",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "commander": "^2.15.1",
+    "inquirer": "^6.0.0",
+    "mongoose": "^5.1.7"
+  }
 }
