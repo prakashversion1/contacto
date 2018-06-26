@@ -1,0 +1,10 @@
+{
+  "name": "contacto",
+  "version": "1.0.0",
+  "description": "simple commandline app built for testing",
+  "main": "index.js",
+  "repository": "https://github.com/prakashversion1/contacto.git",
+  "author": "Prakash Joshi",
+  "license": "MIT",
+  "private": false
+}
