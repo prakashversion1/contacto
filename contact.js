@@ -2,7 +2,7 @@
 
 const program = require('commander');
 const { prompt } = require('inquirer');
-const {addContact, getContact} = require('./index');
+const { addContact, getContact, getContactList, updateContact, deleteContact } = require('./index');
 
 program
     .version('0.0.1')
@@ -10,27 +10,27 @@ program
 
 const questions = [
     {
-        type:'input',
-        name:'firstName',
-        message:'Enter Firstname ...'
+        type: 'input',
+        name: 'firstName',
+        message: 'Enter Firstname ...'
     },
     {
-        type:'input',
-        name:'lastName',
-        message:'Enter Lastname ...'
+        type: 'input',
+        name: 'lastName',
+        message: 'Enter Lastname ...'
     },
     {
-        type:'input',
-        name:'phone',
-        message:'Enter phone number ...'
+        type: 'input',
+        name: 'phone',
+        message: 'Enter phone number ...'
     },
     {
-        type:'input',
-        name:'email',
-        message:'Enter EmailAddress ...'
+        type: 'input',
+        name: 'email',
+        message: 'Enter EmailAddress ...'
     }
 ];
-    
+
 
 program
     .command('addContact')
@@ -47,5 +47,31 @@ program
     .description('Get a contact')
     .action(name => getContact(name));
 
+program
+    .command('updateContact <_id>')
+    .alias('u')
+    .description('Update contact')
+    .action(_id => {
+        prompt(questions).then((answers) =>
+            updateContact(_id, answers));
+    });
+
+program
+    .command('deleteContact <_id>')
+    .alias('d')
+    .description('Delete contact')
+    .action(_id => deleteContact(_id));
+
+program
+    .command('getContactList')
+    .alias('l')
+    .description('List contacts')
+    .action(() => getContactList());
+
+// Assert that a VALID command is provided 
+if (!process.argv.slice(2).length || !/[arudl]/.test(process.argv.slice(2))) {
+    program.outputHelp();
+    process.exit();
+}
 
 program.parse(process.argv);

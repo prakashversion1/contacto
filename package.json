@@ -6,8 +6,8 @@
   "repository": "https://github.com/prakashversion1/contacto.git",
   "author": "Prakash Joshi",
   "license": "MIT",
-  "preferGlobal":true,
-  "bin":"./contact.js",
+  "preferGlobal": true,
+  "bin": "./contact.js",
   "private": false,
   "dependencies": {
     "commander": "^2.15.1",
